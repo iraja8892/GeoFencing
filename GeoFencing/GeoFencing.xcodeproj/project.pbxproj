@@ -14,6 +14,11 @@
 		357517562C485C6B00E368D7 /* GeoFencingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357517552C485C6B00E368D7 /* GeoFencingTests.swift */; };
 		357517602C485C6B00E368D7 /* GeoFencingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3575175F2C485C6B00E368D7 /* GeoFencingUITests.swift */; };
 		357517622C485C6B00E368D7 /* GeoFencingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357517612C485C6B00E368D7 /* GeoFencingUITestsLaunchTests.swift */; };
+		357517732C48638700E368D7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3575176F2C48638700E368D7 /* Extensions.swift */; };
+		357517742C48638700E368D7 /* GeofenceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357517702C48638700E368D7 /* GeofenceState.swift */; };
+		357517752C48638700E368D7 /* LocalNotificationEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357517712C48638700E368D7 /* LocalNotificationEmitter.swift */; };
+		357517762C48638700E368D7 /* GeofenceRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357517722C48638700E368D7 /* GeofenceRegion.swift */; };
+		3575177A2C487C7500E368D7 /* fencingLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 357517792C487C7500E368D7 /* fencingLocation.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,12 @@
 		3575175B2C485C6B00E368D7 /* GeoFencingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoFencingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3575175F2C485C6B00E368D7 /* GeoFencingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoFencingUITests.swift; sourceTree = "<group>"; };
 		357517612C485C6B00E368D7 /* GeoFencingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoFencingUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3575176F2C48638700E368D7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "../../../../../Downloads/GeofencingSampleSwiftUI-main/GeofencingSwiftUI/Extensions.swift"; sourceTree = "<group>"; };
+		357517702C48638700E368D7 /* GeofenceState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeofenceState.swift; path = "../../../../../Downloads/GeofencingSampleSwiftUI-main/GeofencingSwiftUI/GeofenceState.swift"; sourceTree = "<group>"; };
+		357517712C48638700E368D7 /* LocalNotificationEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalNotificationEmitter.swift; path = "../../../../../Downloads/GeofencingSampleSwiftUI-main/GeofencingSwiftUI/LocalNotificationEmitter.swift"; sourceTree = "<group>"; };
+		357517722C48638700E368D7 /* GeofenceRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeofenceRegion.swift; path = "../../../../../Downloads/GeofencingSampleSwiftUI-main/GeofencingSwiftUI/GeofenceRegion.swift"; sourceTree = "<group>"; };
+		357517772C4867B000E368D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		357517792C487C7500E368D7 /* fencingLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = fencingLocation.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +85,7 @@
 		357517382C485C6800E368D7 = {
 			isa = PBXGroup;
 			children = (
+				357517792C487C7500E368D7 /* fencingLocation.gpx */,
 				357517432C485C6800E368D7 /* GeoFencing */,
 				357517542C485C6B00E368D7 /* GeoFencingTests */,
 				3575175E2C485C6B00E368D7 /* GeoFencingUITests */,
@@ -94,6 +106,8 @@
 		357517432C485C6800E368D7 /* GeoFencing */ = {
 			isa = PBXGroup;
 			children = (
+				357517772C4867B000E368D7 /* Info.plist */,
+				3575176E2C48636000E368D7 /* LocationManager */,
 				357517442C485C6800E368D7 /* GeoFencingApp.swift */,
 				357517462C485C6800E368D7 /* ContentView.swift */,
 				357517482C485C6B00E368D7 /* Assets.xcassets */,
@@ -125,6 +139,17 @@
 				357517612C485C6B00E368D7 /* GeoFencingUITestsLaunchTests.swift */,
 			);
 			path = GeoFencingUITests;
+			sourceTree = "<group>";
+		};
+		3575176E2C48636000E368D7 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				3575176F2C48638700E368D7 /* Extensions.swift */,
+				357517722C48638700E368D7 /* GeofenceRegion.swift */,
+				357517702C48638700E368D7 /* GeofenceState.swift */,
+				357517712C48638700E368D7 /* LocalNotificationEmitter.swift */,
+			);
+			path = LocationManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3575174C2C485C6B00E368D7 /* Preview Assets.xcassets in Resources */,
+				3575177A2C487C7500E368D7 /* fencingLocation.gpx in Resources */,
 				357517492C485C6B00E368D7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,7 +284,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				357517472C485C6800E368D7 /* ContentView.swift in Sources */,
+				357517762C48638700E368D7 /* GeofenceRegion.swift in Sources */,
+				357517732C48638700E368D7 /* Extensions.swift in Sources */,
 				357517452C485C6800E368D7 /* GeoFencingApp.swift in Sources */,
+				357517742C48638700E368D7 /* GeofenceState.swift in Sources */,
+				357517752C48638700E368D7 /* LocalNotificationEmitter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,8 +452,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GeoFencing/Preview Content\"";
+				DEVELOPMENT_TEAM = W8D6V5385L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GeoFencing/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Nous avons besoin de votre location pour vous notifier quand vous êtes prêt d'une oeuvre";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nous avons besoin de votre location pour vous notifier quand vous êtes prêt d'une oeuvre";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -450,8 +484,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GeoFencing/Preview Content\"";
+				DEVELOPMENT_TEAM = W8D6V5385L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GeoFencing/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Nous avons besoin de votre location pour vous notifier quand vous êtes prêt d'une oeuvre";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nous avons besoin de votre location pour vous notifier quand vous êtes prêt d'une oeuvre";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
