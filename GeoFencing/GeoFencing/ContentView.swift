@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  GeoFencing
-//
-//  Created by Raja Inbam on 2024-07-17.
-//
-
 import SwiftUI
 import CoreLocation
 

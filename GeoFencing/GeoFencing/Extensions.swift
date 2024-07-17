@@ -9,8 +9,6 @@ extension CLLocationManager {
             promise(.success(self.authorizationStatus))
         }
     }
-    
-    
 }
 
 extension CLLocationCoordinate2D {

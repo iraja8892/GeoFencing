@@ -107,9 +107,11 @@
 			isa = PBXGroup;
 			children = (
 				357517772C4867B000E368D7 /* Info.plist */,
-				3575176E2C48636000E368D7 /* LocationManager */,
+				35DFA97D2C48827E0066D7C3 /* Extensions.swift */,
 				357517442C485C6800E368D7 /* GeoFencingApp.swift */,
 				357517462C485C6800E368D7 /* ContentView.swift */,
+				35DFA9842C4890150066D7C3 /* Notification */,
+				3575176E2C48636000E368D7 /* LocationManager */,
 				357517482C485C6B00E368D7 /* Assets.xcassets */,
 				3575174A2C485C6B00E368D7 /* Preview Content */,
 			);
@@ -144,12 +146,18 @@
 		3575176E2C48636000E368D7 /* LocationManager */ = {
 			isa = PBXGroup;
 			children = (
-				35DFA97D2C48827E0066D7C3 /* Extensions.swift */,
 				35DFA97F2C48827E0066D7C3 /* GeofenceRegion.swift */,
 				35DFA97C2C48827E0066D7C3 /* GeofenceState.swift */,
-				35DFA97E2C48827E0066D7C3 /* LocalNotificationEmitter.swift */,
 			);
 			path = LocationManager;
+			sourceTree = "<group>";
+		};
+		35DFA9842C4890150066D7C3 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				35DFA97E2C48827E0066D7C3 /* LocalNotificationEmitter.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
