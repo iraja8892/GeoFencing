@@ -1,23 +1,14 @@
 import SwiftUI
 import CoreLocation
+import MapKit
 
-//// Samples Geofences Points
-//let rawRegions = [
-//    ("Cupertino",37.334606, -122.009102),
-//    ("Apple",43.217777, -79.987282)
-//]
-//
-//// Transforming simple regions into [CLCircularRegion]
-//let regions = rawRegions.map({ (identifier, lat, lon) in
-//                CLCircularRegion(center: CLLocationCoordinate2DMake(lat, lon),
-//                                 radius: 80,
-//                                 identifier: identifier)})
 
 struct ContentView: View {
     @AppStorage("User") private var user = ""
     @EnvironmentObject var geofenceState: GeofenceState
     @EnvironmentObject var remoteConfig: RemoteConfig
     @StateObject var analytics =  Analytics()
+    @State var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.785834, longitude: -122.406417), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
     var body: some View {
         VStack {
             if user.isEmpty {
@@ -25,7 +16,6 @@ struct ContentView: View {
             } else {
                 Text("Welcome back \($user.wrappedValue)")
             }
-            Spacer()
             VStack(alignment: .leading, spacing: 8) {
                 TextField("Enter your name", text: $user)
                 Button("Remember") {
@@ -38,10 +28,17 @@ struct ContentView: View {
                 RoundedRectangle(cornerRadius: 20)
                     .stroke(.black, lineWidth: 1)
             )
-            Spacer()
+            Map() {
+                ForEach(remoteConfig.locations) { location in
+                    Marker(location.name, coordinate: CLLocationCoordinate2D(latitude: location.lat, longitude: location.lon))
+                }
+                if let coordinate = geofenceState.coordinate {
+                    Marker("You", systemImage: "person", coordinate: coordinate)
+                        .tint(.yellow)
+                }
+                
+            }
         }
-        .padding()
-        .background(.white)
         .onAppear {
             geofenceState.loadPermissions()
             geofenceState.askForAllPermissions()
