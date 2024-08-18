@@ -16,11 +16,14 @@ class GeofenceState: NSObject, ObservableObject {
     @Published var notificationPermissionState : UNAuthorizationStatus = .notDetermined
     @Published var localizationPermissionState : CLAuthorizationStatus = .notDetermined
     
+    // Current location
+    @Published var coordinate: CLLocationCoordinate2D?
+    
     // Custom region
     @Published var customRegionCoordinates: String = ""
     @Published var customRegion: CLCircularRegion?
     @Published var isGeofencingRunning : Bool = false
-        
+     
     var allRegions = Set<CLCircularRegion>()
     @Published var monitoredRegions = Set<CLCircularRegion>()
     
@@ -129,7 +132,7 @@ extension GeofenceState: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         print("Exited region \(region.identifier)")
-        analytics.logEvent(event: "Existed Region", param: ["identifier": region.identifier])
+        analytics.logEvent(event: "Region_exit", param: ["identifier": region.identifier])
     }
     
     func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
@@ -142,7 +145,7 @@ extension GeofenceState: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("did entered region \(region.identifier)")
-        analytics.logEvent(event: "Enter Region", param: ["identifier": region.identifier])
+        analytics.logEvent(event: "Region_entry", param: ["identifier": region.identifier])
         let notification = LocalNotification(
             id: region.identifier,
             title: "⭐️ Region monitored reached !",
@@ -151,6 +154,11 @@ extension GeofenceState: CLLocationManagerDelegate {
         )
         notificationManager.launchNotification(notification)
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("your location \(locations.first?.coordinate)")
+            coordinate = locations.first?.coordinate
+        }
 }
 
 //Permissions related code
