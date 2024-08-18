@@ -27,6 +27,7 @@ class GeofenceState: NSObject, ObservableObject {
     @Published var radius: CLLocationDistance = 100
     
     var locationManager = CLLocationManager()
+    var analytics =  Analytics()
     private var cancellables = Set<AnyCancellable>()
     
     private var notificationManager = LocalNotificationEmitter()
@@ -128,6 +129,7 @@ extension GeofenceState: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         print("Exited region \(region.identifier)")
+        analytics.logEvent(event: "Existed Region", param: ["identifier": region.identifier])
     }
     
     func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
@@ -140,6 +142,7 @@ extension GeofenceState: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("did entered region \(region.identifier)")
+        analytics.logEvent(event: "Enter Region", param: ["identifier": region.identifier])
         let notification = LocalNotification(
             id: region.identifier,
             title: "⭐️ Region monitored reached !",
